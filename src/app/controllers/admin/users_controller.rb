@@ -1,6 +1,6 @@
 # ユーザー管理コントローラー
 class Admin::UsersController < Admin::BaseController
-  before_action :set_user, only: %i[ edit update destroy ]
+  before_action :set_user, only: %i[ edit update destroy restore ]
   before_action :edit_common, only: %i[ edit update ]
 
   # 一覧画面
@@ -66,12 +66,19 @@ class Admin::UsersController < Admin::BaseController
   def destroy
     @user.discard
 
-    redirect_to admin_users_path, notice: "削除しました。", status: :see_other
+    redirect_to edit_admin_user_path(@user), notice: "削除しました。", status: :see_other
+  end
+
+  # 復元処理
+  def restore
+    @user.undiscard
+
+    redirect_to edit_admin_user_path(@user), notice: "復元しました。", status: :see_other
   end
 
   # カレントデータの取得
   private def set_user
-    @user = User.kept.find(params.expect(:id))
+    @user = User.find(params.expect(:id))
   end
 
   # 変更可能な項目だけを絞り込む

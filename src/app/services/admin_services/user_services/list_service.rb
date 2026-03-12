@@ -4,7 +4,6 @@ class AdminServices::UserServices::ListService
   def get_list(page, keyword)
     User
       .order(id: :desc)
-      .kept
       .search_by_keyword(keyword)
       .page(page)
       .per(10)
