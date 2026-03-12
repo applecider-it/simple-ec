@@ -71,7 +71,7 @@ class Admin::UsersController < Admin::BaseController
 
   # カレントデータの取得
   private def set_user
-    @user = User.find(params.expect(:id))
+    @user = User.kept.find(params.expect(:id))
   end
 
   # 変更可能な項目だけを絞り込む
