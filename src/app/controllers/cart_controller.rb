@@ -1,6 +1,6 @@
 class CartController < ApplicationController
   before_action :set_product, only: %i[ destroy ]
-  before_action :setup_cart
+  before_action :setup
 
   # 一覧画面
   def index
@@ -20,8 +20,8 @@ class CartController < ApplicationController
     @product = info[:product]
   end
 
-  # カートの設定
-  private def setup_cart
+  # 共通のセットアップ
+  private def setup
     @cart_service = CartServices::CartService.new(session)
   end
 end

@@ -38,7 +38,7 @@ class CartServices::CartService
   def summary
     list = cart_list
 
-    checkout_service = CartServices::CheckoutService.new
+    checkout_service = CheckoutServices::CheckoutService.new
 
     summary = checkout_service.summary(list)
 

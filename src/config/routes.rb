@@ -34,6 +34,10 @@ Rails.application.routes.draw do
   get "cart", to: "cart#index"
   delete "cart/:id", to: "cart#destroy", as: "cart_destroy"
 
+  # 購入
+  get "checkout", to: "checkout#confirm"
+  post "checkout", to: "checkout#store"
+
   # 開発者向けページ
   get "development/index"
 

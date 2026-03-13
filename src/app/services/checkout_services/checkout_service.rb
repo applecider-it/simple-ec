@@ -1,5 +1,5 @@
 # 決済管理
-class CartServices::CheckoutService
+class CheckoutServices::CheckoutService
   # 計算
   def summary(list)
     details = []
