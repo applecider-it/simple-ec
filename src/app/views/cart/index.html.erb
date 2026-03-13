@@ -1,9 +1,15 @@
 <h2 class="app-h2">カート</h2>
 
-<div>
-  <%= render "list" %>
-</div>
+<% if @summary[:details].empty? %>
+  <div>
+    カートが空です。
+  </div>
+<% else %>
+  <div>
+    <%= render "list" %>
+  </div>
 
-<div class="mt-10">
-  <%= render "summary" %>
-</div>
+  <div class="mt-10">
+    <%= render "summary" %>
+  </div>
+<% end %>

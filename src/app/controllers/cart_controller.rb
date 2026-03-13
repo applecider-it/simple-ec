@@ -10,7 +10,7 @@ class CartController < ApplicationController
   # カートから削除
   def destroy
     @cart_service.destroy(@product)
-    redirect_to cart_index_path, notice: "カートから削除しました"
+    redirect_to cart_path, notice: "カートから削除しました"
   end
 
   # カレントデータの取得
