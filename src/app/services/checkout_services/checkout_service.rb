@@ -1,28 +1,26 @@
 # 決済管理
 class CheckoutServices::CheckoutService
-  # 計算
-  def summary(list)
-    details = []
+  # 決済
+  def checkout(user, summary)
+    Rails.logger.debug "checkout"
+    p user
+    p summary
 
-    all_total = 0
+    User.transaction do
+      user_order = UserOrder.new
 
-    list.each do |row|
-      product = row[:product]
-      amount = row[:amount]
-      total = product.price * amount
+      user.user_orders << user_order
 
-      all_total += total
+      summary[:details].each do |detail|
+        user_order_detail = UserOrderDetail.new(
+          product: detail[:product],
+          amount: detail[:amount],
+          price: detail[:product].price,
+        )
 
-      details.push(
-        product: product,
-        amount: amount,
-        total: total,
-      )
+        user_order.user_order_details << user_order_detail
+      end
     end
 
-    {
-      details: details,
-      total: all_total,
-    }
   end
 end

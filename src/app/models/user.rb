@@ -12,6 +12,8 @@ class User < ApplicationRecord
 
   before_discard :discard_all_relations
 
+  has_many :user_orders
+
   # キーワード検索用スコープ
   scope :search_by_keyword, ->(keyword) {
     return all if keyword.blank?

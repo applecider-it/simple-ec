@@ -38,9 +38,9 @@ class CartServices::CartService
   def summary
     list = cart_list
 
-    checkout_service = CheckoutServices::CheckoutService.new
+    summary_service = OrderServices::SummaryService.new
 
-    summary = checkout_service.summary(list)
+    summary = summary_service.summary(list)
 
     Rails.logger.debug "summary"
     p summary

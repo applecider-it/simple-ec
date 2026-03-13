@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[8.0].define(version: 2026_03_12_043413) do
+ActiveRecord::Schema[8.0].define(version: 2026_03_13_033444) do
   # These are extensions that must be enabled in order to support this database
   enable_extension "pg_catalog.plpgsql"
 
@@ -50,6 +50,28 @@ ActiveRecord::Schema[8.0].define(version: 2026_03_12_043413) do
     t.index ["discarded_at"], name: "index_products_on_discarded_at"
   end
 
+  create_table "user_order_details", force: :cascade do |t|
+    t.bigint "user_order_id", null: false
+    t.bigint "product_id", null: false
+    t.integer "amount"
+    t.integer "price"
+    t.datetime "discarded_at"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["discarded_at"], name: "index_user_order_details_on_discarded_at"
+    t.index ["product_id"], name: "index_user_order_details_on_product_id"
+    t.index ["user_order_id"], name: "index_user_order_details_on_user_order_id"
+  end
+
+  create_table "user_orders", force: :cascade do |t|
+    t.bigint "user_id", null: false
+    t.datetime "discarded_at"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["discarded_at"], name: "index_user_orders_on_discarded_at"
+    t.index ["user_id"], name: "index_user_orders_on_user_id"
+  end
+
   create_table "user_tweets", force: :cascade do |t|
     t.bigint "user_id", null: false
     t.text "content"
@@ -74,5 +96,8 @@ ActiveRecord::Schema[8.0].define(version: 2026_03_12_043413) do
     t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true
   end
 
+  add_foreign_key "user_order_details", "products"
+  add_foreign_key "user_order_details", "user_orders"
+  add_foreign_key "user_orders", "users"
   add_foreign_key "user_tweets", "users"
 end

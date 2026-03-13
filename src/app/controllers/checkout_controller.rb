@@ -1,4 +1,5 @@
 class CheckoutController < ApplicationController
+  before_action :authenticate_user!
   before_action :setup
 
   # 確認
@@ -7,6 +8,10 @@ class CheckoutController < ApplicationController
 
   # 購入
   def store
+    checkout_service = CheckoutServices::CheckoutService.new
+
+    checkout_service.checkout(current_user, @summary)
+
     redirect_to root_path, notice: "購入しました"
   end
 

@@ -5,6 +5,8 @@
 class Product < ApplicationRecord
   include Discard::Model
 
+  has_many :user_order_details
+
   validates :name, presence: true
   validates :price, numericality: { greater_than_or_equal_to: 0 }
 
