@@ -15,6 +15,7 @@ ja:
       product:
         name: "名前"
         price: "価格"
+        description: "詳細"
     errors:
       messages:
         record_invalid: 'バリデーションに失敗しました: %{errors}'

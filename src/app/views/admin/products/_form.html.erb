@@ -1,19 +1,19 @@
 <%= render "shared/message/error_messages", resource: product %>
 
 <div class="my-3">
-  <%= form.label :name %><br />
+  <%= form.label :name, class: "app-form-label" %>
   <%= form.text_field :name, autofocus: true, autocomplete: "name", class: "app-form-input" %>
   <%= field_error(form, :name) %>
 </div>
 
 <div class="my-3">
-  <%= form.label :price %><br />
+  <%= form.label :price, class: "app-form-label" %>
   <%= form.text_field :price, autofocus: true, autocomplete: "price", class: "app-form-input" %>
   <%= field_error(form, :price) %>
 </div>
 
 <div class="my-3">
-  <%= form.label :description %><br />
+  <%= form.label :description, class: "app-form-label" %>
   <%= form.text_area :description, autofocus: true, autocomplete: "description", class: "app-form-input" %>
   <%= field_error(form, :description) %>
 </div>
