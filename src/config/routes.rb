@@ -23,7 +23,15 @@ Rails.application.routes.draw do
   root "home#index"
 
   # 商品
-  resources :products, only: [:index, :show]
+  resources :products, only: [:index, :show] do
+    member do
+      # カートに追加
+      post :add
+    end
+  end
+
+  # カート
+  resources :cart, only: [:index, :destroy]
 
   # 開発者向けページ
   get "development/index"

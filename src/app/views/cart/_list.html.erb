@@ -1,0 +1,12 @@
+<div class="space-y-5">
+  <% @cart[:list].each do |row| %>
+    <div class="transition hover:bg-gray-50 border-2 p-5 rounded">
+      <div class="text-xl">
+        <%= link_to row[:product].name, product_path(row[:product]), class: "app-link-normal" %>
+      </div>
+      <div class="mt-5">
+        <%= row[:amount] %>個
+      </div>
+    </div>
+  <% end %>
+</div>

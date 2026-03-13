@@ -1,0 +1,12 @@
+<%= form_with(model: @add_cart_form, url: add_product_path(@product), scope: :add_cart_form) do |form| %>
+
+  <div>
+    <%= form.select :amount, @info[:amount_hash].map { |k, v| [v, k] }, { prompt: "選択してください" } %>
+    <%= field_error(form, :amount) %>
+  </div>
+
+  <div class="mt-5">
+    <%= form.submit "カートに追加", class: "app-btn-primary" %>
+  </div>
+
+<% end %>

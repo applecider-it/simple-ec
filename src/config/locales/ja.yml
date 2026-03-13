@@ -21,6 +21,10 @@ ja:
         restrict_dependent_destroy:
           has_one: "%{record}が存在しているので削除できません"
           has_many: "%{record}が存在しているので削除できません"
+  activemodel:
+    attributes:
+      add_cart_form:
+        amount: "数量"
   date:
     abbr_day_names:
     - 日
