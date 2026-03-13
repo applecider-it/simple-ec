@@ -41,6 +41,9 @@ Rails.application.routes.draw do
   get "checkout", to: "checkout#confirm"
   post "checkout", to: "checkout#store"
 
+  # お知らせページ
+  get "info", to: "home#info"
+
   # 開発者向けページ
   get "development/index"
 

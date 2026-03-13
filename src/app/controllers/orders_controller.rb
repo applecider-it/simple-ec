@@ -1,5 +1,7 @@
 # マイページ  オーダー管理
 class OrdersController < ApplicationController
+  before_action :authenticate_user!
+
   # 一覧画面
   def index
     list_service = OrderServices::ListService.new

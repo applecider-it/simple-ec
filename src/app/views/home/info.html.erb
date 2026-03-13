@@ -1,0 +1,17 @@
+<h2 class="app-h2">お知らせ</h2>
+
+<div class="space-y-5">
+  <% @infos.each do |info| %>
+    <div class="transition hover:bg-gray-50 border-2 p-5 rounded">
+      <div>
+        <%= info[:title] %>
+      </div>
+      <div class="mt-5">
+        <%= info[:description] %>
+      </div>
+      <div class="mt-5">
+        <%= info[:date] %>
+      </div>
+    </div>
+  <% end %>
+</div>
