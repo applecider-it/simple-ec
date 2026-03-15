@@ -1,0 +1,11 @@
+<div class="space-y-5">
+  <% @user_orders.each do |user_order| %>
+    <% info = @summary_service.summary_by_user_order(user_order) %>
+    <div class="border-2 p-5 rounded">
+      <div class="text-xl"><%= user_order.created_at.strftime("%Y-%m-%d %H:%M") %></div>
+      <div>
+        <%= render "info", info: info %>
+      </div>
+    </div>
+  <% end %>
+</div>

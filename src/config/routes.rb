@@ -60,6 +60,8 @@ Rails.application.routes.draw do
         member do
           patch :restore
         end
+
+        resources :user_orders, only: [:index]
       end
       resources :products, except: [:show] do
         member do

@@ -1,0 +1,20 @@
+<% info[:details].each do |row| %>
+  <div class="border-2 p-5 rounded my-2">
+    <div class="text-xl">
+      <%= link_to row[:product].name, product_path(row[:product]), class: "app-link-normal" %>
+    </div>
+    <div class="mt-2">
+      個数：<%= row[:amount] %>個
+    </div>
+    <div class="mt-2">
+      単価：<%= row[:product].price %>円
+    </div>
+    <div class="mt-2">
+      小計：<%= row[:total] %>円
+    </div>
+  </div>
+<% end %>
+
+<div>
+  計：<%= info[:total] %>円
+</div>
