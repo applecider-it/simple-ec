@@ -51,4 +51,9 @@ class CartServices::CartService
   def clear
     @data_service.clear
   end
+
+  # カウント
+  def count
+    @data_service.count
+  end
 end

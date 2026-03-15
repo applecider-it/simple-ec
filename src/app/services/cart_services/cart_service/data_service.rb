@@ -68,6 +68,15 @@ class CartServices::CartService::DataService
     @session.delete(@session_key)
   end
 
+  # カウント
+  def count
+    cnt = 0
+    get_session.each do |idx, row|
+      cnt += row["amount"]
+    end
+    cnt
+  end
+
   # 一時データの、商品初期化
   private def init_cart_product(cart, product)
     initial_data = {
