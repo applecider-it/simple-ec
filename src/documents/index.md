@@ -1,5 +1,5 @@
 
-# Railsモノリスのテスト用アプリケーション
+# シンプルなEC
 
 - [設計](./design.md)
 
@@ -14,6 +14,7 @@
 - [ユーザー](./models/user.md)
   - [ユーザーオーダー](./models/user_order.md)
 - [管理者](./models/admin_user.md)
+- [商品](./models/product.md)
 
 ## 追加した要素
 
