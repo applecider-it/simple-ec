@@ -1,17 +1,19 @@
-<% breadcrumb :new_admin_product %>
+<div class="app-container-normal">
+  <% breadcrumb :new_admin_product %>
 
-<h2 class="app-h2">新規商品</h2>
+  <h2 class="app-h2">新規商品</h2>
 
-<%= form_with(model: @product, url: admin_products_path, scope: :product) do |form| %>
-  <%= render "form", form: form, product: @product %>
+  <%= form_with(model: @product, url: admin_products_path, scope: :product) do |form| %>
+    <%= render "form", form: form, product: @product %>
 
-  <div class="my-2">
-    <%= form.submit "確定", class: "app-btn-primary w-40", name: "confirm" %>
+    <div class="my-2">
+      <%= form.submit "確定", class: "app-btn-primary w-40", name: "confirm" %>
+    </div>
+  <% end %>
+
+  <br>
+
+  <div>
+    <%= link_to "一覧", admin_products_path, class: "app-link-normal" %>
   </div>
-<% end %>
-
-<br>
-
-<div>
-  <%= link_to "一覧", admin_products_path, class: "app-link-normal" %>
 </div>

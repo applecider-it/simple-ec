@@ -1,17 +1,19 @@
-<% breadcrumb :admin_products %>
+<div class="app-container-normal">
+  <% breadcrumb :admin_products %>
 
-<h2 class="app-h2">商品一覧</h2>
+  <h2 class="app-h2">商品一覧</h2>
 
-<div class="my-10">
-  <%= link_to "新規作成", new_admin_product_path, class: "app-btn-primary" %>
-</div>
+  <div class="my-10">
+    <%= link_to "新規作成", new_admin_product_path, class: "app-btn-primary" %>
+  </div>
 
-<div class="my-3">
-  <%= render "search" %>
-</div>
+  <div class="my-3">
+    <%= render "search" %>
+  </div>
 
-<%= render "list" %>
+  <%= render "list" %>
 
-<div class="mt-5">
-  <%= paginate @products %>
+  <div class="mt-5">
+    <%= paginate @products %>
+  </div>
 </div>
