@@ -1,11 +1,26 @@
-<div class="space-y-5">
-  <% @user_orders.each do |user_order| %>
-    <% info = @summary_service.summary_by_user_order(user_order) %>
-    <div class="border-2 p-5 rounded">
-      <div class="text-xl"><%= user_order.created_at.strftime("%Y-%m-%d %H:%M") %></div>
-      <div>
-        <%= render "info", info: info %>
-      </div>
-    </div>
-  <% end %>
+<div class="app-table-container">
+  <table class="app-table">
+    <thead class="app-table-thead">
+      <tr>
+        <th class="app-table-th">ID</th>
+        <th class="app-table-th">作成日時</th>
+        <th class="app-table-th">削除日時</th>
+        <th class="app-table-th">詳細</th>
+      </tr>
+    </thead>
+    <tbody class="app-table-tbody">
+      <% @user_orders.each do |user_order| %>
+        <% info = @summary_service.summary_by_user_order(user_order) %>
+        <tr class="transition
+         <% if user_order.discarded? %>bg-gray-300 hover:bg-gray-200<% else %>hover:bg-gray-50<% end %>">
+          <td class="app-table-td text-gray-700"><%= user_order.id %></td>
+          <td class="app-table-td"><%= user_order.created_at.strftime("%Y-%m-%d %H:%M") %></td>
+          <td class="app-table-td"><%= user_order.discarded_at ? user_order.discarded_at.strftime("%Y-%m-%d %H:%M") : '' %></td>
+          <td class="app-table-td">
+            <%= render "info", info: info %>
+          </td>
+        </tr>
+      <% end %>
+    </tbody>
+  </table>
 </div>
