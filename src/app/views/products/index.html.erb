@@ -1,11 +1,13 @@
-<h2 class="app-h2">商品一覧</h2>
+<div class="app-container-normal">
+  <h2 class="app-h2">商品一覧</h2>
 
-<div class="my-3">
-  <%= render "search" %>
-</div>
+  <div class="my-3">
+    <%= render "search" %>
+  </div>
 
-<%= render "list" %>
+  <%= render "list" %>
 
-<div class="mt-5">
-  <%= paginate @products %>
+  <div class="mt-5">
+    <%= paginate @products %>
+  </div>
 </div>

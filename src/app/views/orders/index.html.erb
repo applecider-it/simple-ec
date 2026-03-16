@@ -1,7 +1,9 @@
-<h2 class="app-h2">オーダー一覧</h2>
+<div class="app-container-normal">
+  <h2 class="app-h2">オーダー一覧</h2>
 
-<%= render "list" %>
+  <%= render "list" %>
 
-<div class="mt-5">
-  <%= paginate @user_orders %>
+  <div class="mt-5">
+    <%= paginate @user_orders %>
+  </div>
 </div>
