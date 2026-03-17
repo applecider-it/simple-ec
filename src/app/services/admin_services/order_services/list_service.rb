@@ -7,6 +7,6 @@ class AdminServices::OrderServices::ListService
       .includes(user_order_details: :product)
       .order(id: :desc)
       .page(page)
-      .per(3)
+      .per(5)
   end
 end

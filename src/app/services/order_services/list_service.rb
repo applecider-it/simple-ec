@@ -8,6 +8,6 @@ class OrderServices::ListService
       .order(id: :desc)
       .kept
       .page(page)
-      .per(10)
+      .per(5)
   end
 end

@@ -1,10 +1,10 @@
 <div class="app-container-normal">
   <% breadcrumb :edit_admin_user, @user %>
 
-  <h2 class="app-h2">ユーザー変更</h2>
+  <h2 class="app-h2">ユーザー更新</h2>
 
   <div class="my-5 space-x-3">
-    <%= link_to "オーダー一覧", admin_user_user_orders_path(@user), class: "app-link-normal" %>
+    <%= link_to "ユーザーオーダー一覧", admin_user_user_orders_path(@user), class: "app-link-normal" %>
   </div>
 
   <%= form_with(model: @user, url: admin_user_path(@user), scope: :user) do |form| %>

@@ -1,7 +1,7 @@
 <div class="app-container-normal">
   <% breadcrumb :edit_admin_product, @product %>
 
-  <h2 class="app-h2">商品変更</h2>
+  <h2 class="app-h2">商品更新</h2>
 
   <%= form_with(model: @product, url: admin_product_path(@product), scope: :product) do |form| %>
     <%= render "form", form: form, product: @product %>
