@@ -16,9 +16,9 @@ link_style = "hover:text-indigo-500"
     <%= link_to 'Top', root_path, class: link_style %>
     <%= link_to '商品', products_path, class: link_style %>
     <%= link_to 'カート' + (@application_common[:cart_count] > 0 ? " (#{@application_common[:cart_count]})" : ''), cart_path, class: link_style %>
-    <%= link_to 'オーダー', orders_path, class: link_style %>
     <%= link_to 'お知らせ', info_path, class: link_style %>
     <% if user_signed_in? %>
+      <%= link_to 'マイオーダー', orders_path, class: link_style %>
       <%= link_to current_user.email, edit_user_registration_path, class: link_style %>
       <%= button_to 'Logout',
         destroy_user_session_path,
