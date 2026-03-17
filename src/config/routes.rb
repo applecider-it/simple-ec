@@ -44,9 +44,6 @@ Rails.application.routes.draw do
   # お知らせページ
   get "info", to: "home#info"
 
-  # 開発者向けページ
-  get "development/index"
-
   # 管理画面
   scope "/admin_secret" do
     devise_for :admin_users, controllers: {

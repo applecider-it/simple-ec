@@ -1,4 +1,5 @@
 import './bootstrap/alpinejs';
+import './bootstrap/swiper';
 import './bootstrap/container';
 import './bootstrap/menu';
 
