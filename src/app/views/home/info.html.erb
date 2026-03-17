@@ -1,18 +1,22 @@
 <div class="app-container-normal">
   <h2 class="app-h2">お知らせ</h2>
 
-  <div class="space-y-5">
+  <div class="space-y-4">
     <% @infos.each do |info| %>
-      <div class="transition hover:bg-gray-50 border-2 p-5 rounded">
-        <div>
-          <%= info[:title] %>
-        </div>
-        <div class="mt-5">
-          <%= info[:description] %>
-        </div>
-        <div class="mt-5">
+      <div class="bg-white border border-gray-200 rounded-lg p-5 hover:shadow-md transition">
+
+        <div class="text-sm text-gray-500">
           <%= info[:date] %>
         </div>
+
+        <div class="mt-1 text-lg font-semibold text-gray-800">
+          <%= info[:title] %>
+        </div>
+
+        <div class="mt-3 text-gray-600 leading-relaxed">
+          <%= info[:description] %>
+        </div>
+
       </div>
     <% end %>
   </div>
