@@ -17,4 +17,9 @@ class Product < ApplicationRecord
     return all if keyword.blank?
     where("name LIKE ? OR description LIKE ?", "%#{sanitize_sql_like(keyword)}%", "%#{sanitize_sql_like(keyword)}%")
   }
+
+  # イメージタグ用の値を返す
+  def image_for_image_tag
+    image.attached? ? image : "sample.svg"
+  end
 end

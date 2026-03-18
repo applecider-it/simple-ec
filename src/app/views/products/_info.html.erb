@@ -3,7 +3,7 @@
 
     <!-- 商品画像 -->
     <div>
-      <%= image_tag "sample.svg", alt: @product.name, class: "w-full rounded-lg shadow" %>
+      <%= image_tag @product.image_for_image_tag, alt: @product.name, class: "w-full rounded-lg shadow" %>
     </div>
 
     <!-- 商品情報 -->
