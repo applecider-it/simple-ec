@@ -22,9 +22,9 @@
   <%= form.label :image, class: "app-form-label" %>
   <%= form.file_field :image, class: "app-form-input" %>
   <%= field_error(form, :image) %>
-  <% if @product.image.attached? %>
-    <div>
-      <div>@product.image.filename</div>
+  <% if @product.image.attached? && @product.valid? %>
+    <div class="my-5 border p-2">
+      <div><%= @product.image.filename %></div>
       <div><%= @product.image.content_type %></div>
       <div><%= image_tag @product.image, width: 200 %></div>
       <div>

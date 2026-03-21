@@ -1,5 +1,9 @@
 ---
 ja:
+  app:
+    errors:
+      messages:
+        image: "画像ファイルをアップロードしてください（SVGは不可）"
   activerecord:
     models:
       user: "ユーザー"
