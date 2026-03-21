@@ -4,7 +4,7 @@ class PagesController < ApplicationController
     service = PageServices::PageService.new
     info = service.get_page_info(params[:slug])
 
-    return head :not_found unless info
+    raise ActiveRecord::RecordNotFound unless info
 
     render "pages/show/#{info[:name]}"
   end
