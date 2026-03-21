@@ -66,7 +66,7 @@ Rails.application.routes.draw do
         end
       end
 
-      resources :orders, except: [:show] do
+      resources :orders, except: [:show, :new, :create] do
         member do
           patch :restore
         end

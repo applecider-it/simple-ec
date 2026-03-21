@@ -1,24 +1,10 @@
-<table class="app-table">
-  <thead class="app-table-thead">
-    <tr>
-      <th class="app-table-th">名称</th>
-      <th class="app-table-th">個数</th>
-      <th class="app-table-th">単価</th>
-      <th class="app-table-th">小計</th>
-    </tr>
-  </thead>
-  <tbody class="app-table-tbody">
-    <% info[:details].each do |row| %>
-      <tr class="transition hover:bg-gray-50">
-        <td class="app-table-td"><%= link_to row[:product].name, edit_admin_product_path(row[:product]), class: "app-link-normal" %></td>
-        <td class="app-table-td"><%= row[:amount] %></td>
-        <td class="app-table-td"><%= row[:product].price %>円</td>
-        <td class="app-table-td"><%= row[:total] %>円</td>
-      </tr>
-    <% end %>
-  </tbody>
-</table>
-
-<div>
-  計：<%= info[:total] %>円
+<div class="my-3">
+  <%= form.label :created_at, class: "app-form-label" %>
+  <%= user_order.created_at.strftime("%Y-%m-%d %H:%M") %>
 </div>
+
+<div class="my-3">
+  <%= form.label :discarded_at, class: "app-form-label" %>
+  <%= user_order.discarded_at ? user_order.discarded_at.strftime("%Y-%m-%d %H:%M") : 'none' %>
+</div>
+

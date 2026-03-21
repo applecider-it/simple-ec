@@ -1,0 +1,35 @@
+<div class="app-container-normal">
+  <% breadcrumb :edit_admin_order, @user_order %>
+
+  <h2 class="app-h2">オーダー更新</h2>
+
+  <%= form_with(model: @user_order, url: admin_order_path(@user_order), scope: :user_order) do |form| %>
+    <%= render "form", form: form, user_order: @user_order %>
+
+    <%= render "info", form: form, user_order: @user_order %>
+
+    <div class="my-2">
+      <%= form.submit "確定", class: "app-btn-primary w-40" %>
+    </div>
+  <% end %>
+
+  <div class="mt-5">
+    <%= link_to "一覧", admin_orders_path, class: "app-link-normal" %>
+  </div>
+
+  <div class="mt-5">
+    <%= render "details", info: @info %>
+  </div>
+
+  <div class="mt-10">
+    <% if @user_order.discarded? %>
+      <%= button_to "復元", restore_admin_order_path(@user_order), method: :patch,
+        class: "app-btn-secondary",
+        form: { onsubmit: "return confirm('本当に復元しますか？');" } %>
+    <% else %>
+      <%= button_to "削除", admin_order_path(@user_order), method: :delete,
+        class: "app-btn-danger",
+        form: { onsubmit: "return confirm('本当に削除しますか？');" } %>
+    <% end %>
+  </div>
+</div>

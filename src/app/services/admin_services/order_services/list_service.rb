@@ -9,7 +9,7 @@ class AdminServices::OrderServices::ListService
       ])
       .order(id: :desc)
     
-    if user_id
+    if user_id.present?
       user_orders = user_orders.where(user_id: user_id)
     end
     

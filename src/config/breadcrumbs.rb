@@ -21,10 +21,16 @@ crumb :edit_admin_user do |user|
   parent :admin_users
 end
 
-# ユーザーオーダー一覧
+# オーダー一覧
 crumb :admin_orders do
   link "オーダー一覧", admin_orders_path
   parent :admin
+end
+
+# オーダー編集
+crumb :edit_admin_order do |user_order|
+  link "ID: #{user_order.id}", edit_admin_order_path(user_order)
+  parent :admin_orders
 end
 
 # 商品一覧

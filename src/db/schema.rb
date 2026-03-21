@@ -83,10 +83,8 @@ ActiveRecord::Schema[8.0].define(version: 2026_03_17_235716) do
     t.bigint "product_id", null: false
     t.integer "amount"
     t.integer "price"
-    t.datetime "discarded_at"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-    t.index ["discarded_at"], name: "index_user_order_details_on_discarded_at"
     t.index ["product_id"], name: "index_user_order_details_on_product_id"
     t.index ["user_order_id"], name: "index_user_order_details_on_user_order_id"
   end

@@ -15,30 +15,8 @@ class Admin::OrdersController < Admin::BaseController
     @user_orders = list_service.get_list(page, @user_id)
   end
 
-  # 新規作成画面
-  def new
-    @user_order = UserOrder.new
-  end
-
   # 更新画面
   def edit
-  end
-
-  # 新規作成処理
-  def create
-    @user_order = UserOrder.new(user_order_params)
-
-    if @user_order.valid?
-      # エラーがないとき
-
-      @user_order.save
-
-      redirect_to edit_admin_user_order_path(@user_order), notice: "作成しました。"
-    else
-      # エラーがあるとき
-      
-      render :new, status: :unprocessable_entity
-    end
   end
 
   # 更新処理
@@ -50,7 +28,7 @@ class Admin::OrdersController < Admin::BaseController
 
       @user_order.save
 
-      redirect_to edit_admin_user_order_path(@user_order), notice: "更新しました。", status: :see_other
+      redirect_to edit_admin_order_path(@user_order), notice: "更新しました。", status: :see_other
     else
       # エラーがあるとき
       
@@ -62,14 +40,14 @@ class Admin::OrdersController < Admin::BaseController
   def destroy
     @user_order.discard
 
-    redirect_to edit_admin_user_order_path(@user_order), notice: "削除しました。", status: :see_other
+    redirect_to edit_admin_order_path(@user_order), notice: "削除しました。", status: :see_other
   end
 
   # 復元処理
   def restore
     @user_order.undiscard
 
-    redirect_to edit_admin_user_order_path(@user_order), notice: "復元しました。", status: :see_other
+    redirect_to edit_admin_order_path(@user_order), notice: "復元しました。", status: :see_other
   end
 
 
@@ -85,5 +63,7 @@ class Admin::OrdersController < Admin::BaseController
 
   # 更新画面の共通処理
   private def edit_common
+    summary_service = OrderServices::SummaryService.new
+    @info = summary_service.summary_by_user_order(@user_order)
   end
 end
