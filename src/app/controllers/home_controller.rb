@@ -1,7 +1,9 @@
+# トップ画面など
 class HomeController < ApplicationController
   def index
   end
 
+  # お知らせページなど
   def info
     info_service = InfoServices::InfoService.new
 

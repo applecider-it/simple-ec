@@ -1,9 +1,15 @@
 <div class="space-y-5">
   <% @products.each do |product| %>
-    <div class="transition hover:bg-gray-50 border-2 p-5 rounded cursor-pointer"
+    <div class="transition hover:bg-gray-50 border-2 p-5 rounded cursor-pointer
+    flex items-center justify-between"
     onclick="location.href = '<%= product_path(product) %>'">
-      <div class="text-xl"><%= product.name %></div>
-      <div class="mt-5 text-sm text-gray-400"><%= product.description %></div>
+      <div>
+        <%= image_tag product.image_for_image_tag, alt: product.name, class: "rounded-lg shadow", style: "max-width: 5rem;" %>
+      </div>
+      <div>
+        <div class="text-xl"><%= product.name %></div>
+        <div class="mt-5 text-sm text-gray-400"><%= product.price %>円</div>
+      </div>
     </div>
   <% end %>
 </div>

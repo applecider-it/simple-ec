@@ -1,3 +1,4 @@
+# 購入管理コントローラー
 class CheckoutController < ApplicationController
   before_action :authenticate_user!
   before_action :setup

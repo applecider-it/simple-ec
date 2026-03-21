@@ -1,3 +1,4 @@
+# カート追加フォーム
 class AddCartForm
   include ActiveModel::Model
 

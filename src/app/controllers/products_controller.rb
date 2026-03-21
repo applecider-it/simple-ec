@@ -1,3 +1,4 @@
+# 商品管理コントローラー
 class ProductsController < ApplicationController
   before_action :set_product, only: %i[ show add ]
 

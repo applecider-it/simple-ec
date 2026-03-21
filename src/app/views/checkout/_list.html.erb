@@ -1,17 +1,23 @@
 <div class="space-y-5">
   <% @summary[:details].each do |row| %>
-    <div class="border p-2 rounded">
-      <div class="text-xl">
-        <%= link_to row[:product].name, product_path(row[:product]), class: "app-link-normal" %>
+    <div class="border p-2 rounded
+    flex items-center justify-between">
+      <div>
+        <%= image_tag row[:product].image_for_image_tag, alt: row[:product].name, class: "rounded-lg shadow", style: "max-width: 5rem;" %>
       </div>
-      <div class="mt-5">
-        個数：<%= row[:amount] %>個
-      </div>
-      <div class="mt-5">
-        単価：<%= row[:product].price %>円
-      </div>
-      <div class="mt-5">
-        小計：<%= row[:total] %>円
+      <div>
+        <div class="text-xl">
+          <%= link_to row[:product].name, product_path(row[:product]), class: "app-link-normal" %>
+        </div>
+        <div class="mt-5">
+          個数：<%= row[:amount] %>個
+        </div>
+        <div class="mt-5">
+          単価：<%= row[:product].price %>円
+        </div>
+        <div class="mt-5">
+          小計：<%= row[:total] %>円
+        </div>
       </div>
     </div>
   <% end %>

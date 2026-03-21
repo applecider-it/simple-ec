@@ -24,7 +24,7 @@ class CartServices::CartService::DataService
     product_ids = cart.keys
 
     # index_by(&:id) で { 1 => product_obj, 3 => product_obj } の形にする
-    products = Product.where(id: product_ids).index_by(&:id)
+    products = Product.includes([:image_attachment]).where(id: product_ids).index_by(&:id)
 
     list = []
 

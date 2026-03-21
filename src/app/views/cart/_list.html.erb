@@ -1,21 +1,27 @@
 <div class="space-y-5">
   <% @summary[:details].each do |row| %>
-    <div class="transition hover:bg-gray-50 border-2 p-5 rounded">
-      <div class="text-xl">
-        <%= link_to row[:product].name, product_path(row[:product]), class: "app-link-normal" %>
+    <div class="transition hover:bg-gray-50 border-2 p-5 rounded
+    flex items-center justify-between">
+      <div>
+        <%= image_tag row[:product].image_for_image_tag, alt: row[:product].name, class: "rounded-lg shadow", style: "max-width: 5rem;" %>
       </div>
-      <div class="mt-5">
-        個数：<%= row[:amount] %>個
-      </div>
-      <div class="mt-5">
-        単価：<%= row[:product].price %>円
-      </div>
-      <div class="mt-5">
-        小計：<%= row[:total] %>円
-      </div>
-      <div class="mt-5">
-        <%= button_to "削除", cart_destroy_path(row[:product]), method: :delete,
-          class: "app-btn-danger" %>
+      <div>
+        <div class="text-xl">
+          <%= link_to row[:product].name, product_path(row[:product]), class: "app-link-normal" %>
+        </div>
+        <div class="mt-5">
+          個数：<%= row[:amount] %>個
+        </div>
+        <div class="mt-5">
+          単価：<%= row[:product].price %>円
+        </div>
+        <div class="mt-5">
+          小計：<%= row[:total] %>円
+        </div>
+        <div class="mt-5">
+          <%= button_to "削除", cart_destroy_path(row[:product]), method: :delete,
+            class: "app-btn-danger" %>
+        </div>
       </div>
     </div>
   <% end %>
