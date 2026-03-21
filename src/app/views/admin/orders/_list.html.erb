@@ -12,7 +12,7 @@
     </thead>
     <tbody class="app-table-tbody">
       <% @user_orders.each do |user_order| %>
-        <% info = @summary_service.summary_by_user_order(user_order.user_order_details) %>
+        <% info = @summary_service.summary_by_user_order(user_order) %>
         <tr class="transition
          <% if user_order.discarded? %>bg-gray-300 hover:bg-gray-200<% else %>hover:bg-gray-50<% end %>">
           <td class="app-table-td text-gray-700"><%= user_order.id %></td>

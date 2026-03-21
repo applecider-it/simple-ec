@@ -24,11 +24,9 @@ class OrderServices::SummaryService
   end
 
   # オーダーからサマリー取得
-  # 
-  # user_orderを直接渡すと、bulletのエラーが出る場合があるため、user_order_detailsを渡している
-  def summary_by_user_order(user_order_details)
+  def summary_by_user_order(user_order)
     list = []
-    user_order_details.each do |user_order_detail|
+    user_order.user_order_details.each do |user_order_detail|
       list.push({
         product: user_order_detail.product,
         amount: user_order_detail.amount,

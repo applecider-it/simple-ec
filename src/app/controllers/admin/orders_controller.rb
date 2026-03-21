@@ -53,7 +53,9 @@ class Admin::OrdersController < Admin::BaseController
 
   # カレントデータの取得
   private def set_user_order
-    @user_order = UserOrder.find(params.expect(:id))
+    @user_order = UserOrder
+      .includes(user_order_details: :product)
+      .find(params[:id])
   end
 
   # 変更可能な項目だけを絞り込む
@@ -64,6 +66,6 @@ class Admin::OrdersController < Admin::BaseController
   # 更新画面の共通処理
   private def edit_common
     summary_service = OrderServices::SummaryService.new
-    @info = summary_service.summary_by_user_order(@user_order.user_order_details.includes(:product))
+    @info = summary_service.summary_by_user_order(@user_order)
   end
 end
