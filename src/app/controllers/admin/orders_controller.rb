@@ -1,5 +1,5 @@
-# ユーザーオーダー管理コントローラー
-class Admin::UserOrdersController < Admin::BaseController
+# オーダー管理コントローラー
+class Admin::OrdersController < Admin::BaseController
   before_action :set_user_order, only: %i[ edit update destroy restore ]
   before_action :edit_common, only: %i[ edit update ]
 

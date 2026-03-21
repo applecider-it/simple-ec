@@ -4,7 +4,7 @@
   <h2 class="app-h2">ユーザー更新</h2>
 
   <div class="my-5 space-x-3">
-    <%= link_to "ユーザーオーダー一覧", admin_user_orders_path(user_id: @user.id), class: "app-link-normal" %>
+    <%= link_to "ユーザーオーダー一覧", admin_orders_path(user_id: @user.id), class: "app-link-normal" %>
   </div>
 
   <%= form_with(model: @user, url: admin_user_path(@user), scope: :user) do |form| %>
