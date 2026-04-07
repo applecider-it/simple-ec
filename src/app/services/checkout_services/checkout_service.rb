@@ -7,19 +7,17 @@ class CheckoutServices::CheckoutService
     p summary
 
     User.transaction do
-      user_order = UserOrder.new
-
-      user.user_orders << user_order
+      user_order = user.user_orders.build
 
       summary[:details].each do |detail|
-        user_order_detail = UserOrderDetail.new(
+        user_order.user_order_details.build(
           product: detail[:product],
-          amount: detail[:amount],
-          price: detail[:product].price,
+              amount: detail[:amount],
+              price: detail[:product].price,
         )
-
-        user_order.user_order_details << user_order_detail
       end
+
+      user_order.save!
     end
 
   end
