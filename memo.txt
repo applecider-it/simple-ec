@@ -86,4 +86,26 @@ dt
 
 find storage -type d -empty -delete
 
+-----------------------------------
 
+Render設定
+
+Root Directory:
+
+src
+
+Build Command:
+
+bundle install && npm ci && rails assets:precompile && bin/rails db:migrate
+
+Start Command:
+
+bundle exec puma
+
+-----------------------------------
+
+本番環境メモ
+
+config.active_storage.serviceがcloudinaryになっている。
+
+-----------------------------------
