@@ -89,3 +89,6 @@ end
 gem 'kaminari'
 
 gem 'gretel'
+
+gem "cloudinary"
+gem "activestorage-cloudinary-service"
