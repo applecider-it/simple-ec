@@ -88,7 +88,10 @@ find storage -type d -empty -delete
 
 -----------------------------------
 
-Render設定
+Render(Paas)
+
+
+設定
 
 Root Directory:
 
@@ -104,6 +107,12 @@ bundle exec puma
 
 ----
 
+DB作成
+
+メインDBだけ作ればそれ以外のDBは、ビルド時のdb:migrateで作られる。
+
+----
+
 管理者ユーザーをシェルなしで作る方法
 
 ユーザーをWebから作成。
@@ -113,8 +122,18 @@ DBをみて、メールアドレスと、パスワードをコピー。
 
 -----------------------------------
 
+cloudinary
+
+
+.envの変更
+
+-----------------------------------
+
 本番環境メモ
 
-config.active_storage.serviceがcloudinaryになっている。
+
+Renderで動くように設定しているため、
+
+config.active_storage.service が cloudinary になっている。
 
 -----------------------------------
