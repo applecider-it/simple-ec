@@ -48,3 +48,9 @@ npm install swiper
 rails active_storage:install
 rails db:migrate
 
+
+-----------------------------------
+
+rails generate migration AddOrderStatusToUserOrders order_status:integer
+
+rails db:migrate

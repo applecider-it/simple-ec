@@ -1,7 +1,7 @@
 <%= render "shared/message/error_messages", resource: user_order %>
 
 <div class="my-3">
-  <%= form.label :user_id, class: "app-form-label" %>
-  <%= form.text_field :user_id, autofocus: true, autocomplete: "user_id", class: "app-form-input" %>
-  <%= field_error(form, :user_id) %>
+  <%= form.label :order_status, class: "app-form-label" %>
+  <%= form.select :order_status, UserOrder.active_order_statuses.invert %>
+  <%= field_error(form, :order_status) %>
 </div>

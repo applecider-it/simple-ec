@@ -60,7 +60,7 @@ class Admin::OrdersController < Admin::BaseController
 
   # 変更可能な項目だけを絞り込む
   private def user_order_params
-    params.expect(user_order: [ :user_id ])
+    params.expect(user_order: [ :order_status ])
   end
 
   # 更新画面の共通処理
