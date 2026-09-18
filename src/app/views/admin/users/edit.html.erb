@@ -17,11 +17,6 @@
     </div>
   <% end %>
 
-
-  <div class="mt-5">
-    <%= link_to "一覧", admin_users_path, class: "app-link-normal" %>
-  </div>
-
   <div class="mt-10">
     <% if @user.discarded? %>
       <%= button_to "復元", restore_admin_user_path(@user), method: :patch,
