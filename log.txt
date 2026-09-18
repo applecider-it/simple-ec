@@ -54,3 +54,5 @@ rails db:migrate
 rails generate migration AddOrderStatusToUserOrders order_status:integer
 
 rails db:migrate
+
+rails generate migration AddNameToUsers name:string

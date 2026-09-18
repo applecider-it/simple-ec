@@ -14,6 +14,8 @@ class User < ApplicationRecord
 
   has_many :user_orders
 
+  validates :name, presence: true
+
   # キーワード検索用スコープ
   scope :search_by_keyword, ->(keyword) {
     return all if keyword.blank?
