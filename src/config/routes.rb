@@ -32,7 +32,7 @@ Rails.application.routes.draw do
   end
 
   # オーダー
-  resources :orders, only: [:index]
+  resources :user_orders, path: 'orders', only: [:index]
 
   # カート
   get "cart", to: "cart#index"
