@@ -1,11 +1,9 @@
-<% content_for :title, "New user address" %>
+<div class="app-container-normal">
 
-<h1>New user address</h1>
+  <%= render "shared/account/menu" %>
 
-<%= render "form", user_address: @user_address %>
+  <h2 class="app-h2">住所登録</h2>
 
-<br>
+  <%= render "form", user_address: @user_address %>
 
-<div>
-  <%= link_to "Back to user addresses", user_addresses_path %>
 </div>

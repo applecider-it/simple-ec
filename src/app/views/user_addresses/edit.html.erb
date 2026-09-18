@@ -1,12 +1,13 @@
-<% content_for :title, "Editing user address" %>
+<div class="app-container-normal">
 
-<h1>Editing user address</h1>
+  <%= render "shared/account/menu" %>
 
-<%= render "form", user_address: @user_address %>
+  <h2 class="app-h2">住所更新</h2>
 
-<br>
+  <%= render "form", user_address: @user_address %>
 
-<div>
-  <%= link_to "Show this user address", @user_address %> |
-  <%= link_to "Back to user addresses", user_addresses_path %>
+  <div class="mt-10">
+    <%= button_to "削除", @user_address, method: :delete %>
+  </div>
+
 </div>

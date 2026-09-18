@@ -1,5 +1,4 @@
 Rails.application.routes.draw do
-  resources :user_addresses
   # ユーザー関連
   devise_for :users, controllers: {
     sessions: 'users/sessions',
@@ -31,8 +30,11 @@ Rails.application.routes.draw do
     end
   end
 
-  # オーダー
+  # マイページ：オーダー
   resources :user_orders, path: 'orders', only: [:index]
+
+  # マイページ：住所
+  resources :user_addresses, path: 'addresses', except: [:show]
 
   # カート
   get "cart", to: "cart#index"

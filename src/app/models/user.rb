@@ -13,6 +13,7 @@ class User < ApplicationRecord
   before_discard :discard_all_relations
 
   has_many :user_orders
+  has_many :user_addresses
 
   validates :name, presence: true
 

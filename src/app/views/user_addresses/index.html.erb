@@ -1,16 +1,22 @@
-<p style="color: green"><%= notice %></p>
+<div class="app-container-normal">
 
-<% content_for :title, "User addresses" %>
+  <%= render "shared/account/menu" %>
 
-<h1>User addresses</h1>
+  <h2 class="app-h2">住所一覧</h2>
 
-<div id="user_addresses">
-  <% @user_addresses.each do |user_address| %>
-    <%= render user_address %>
-    <p>
-      <%= link_to "Show this user address", user_address %>
-    </p>
-  <% end %>
+  <div class="my-5">
+    <%= link_to "新規作成", new_user_address_path, class: "app-btn-primary" %>
+  </div>
+
+  <div class="space-y-5">
+    <% @user_addresses.each do |user_address| %>
+      <div>
+        <%= render user_address %>
+        <div class="mt-3">
+          <%= link_to "編集", edit_user_address_path(user_address), class: "app-btn-secondary" %>
+        </div>
+      </div>
+    <% end %>
+  </div>
+
 </div>
-
-<%= link_to "New user address", new_user_address_path %>

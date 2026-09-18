@@ -1,60 +1,49 @@
 class UserAddressesController < ApplicationController
-  before_action :set_user_address, only: %i[ show edit update destroy ]
+  before_action :authenticate_user!
 
-  # GET /user_addresses or /user_addresses.json
+  before_action :set_user_address, only: %i[ edit update destroy ]
+
+  # 一覧画面
   def index
-    @user_addresses = UserAddress.all
+    @user_addresses = current_user.user_addresses.all
   end
 
-  # GET /user_addresses/1 or /user_addresses/1.json
-  def show
-  end
-
-  # GET /user_addresses/new
+  # 新規作成画面
   def new
     @user_address = UserAddress.new
   end
 
-  # GET /user_addresses/1/edit
+  # 更新画面
   def edit
   end
 
-  # POST /user_addresses or /user_addresses.json
+  # 新規作成処理
   def create
     @user_address = UserAddress.new(user_address_params)
 
-    respond_to do |format|
-      if @user_address.save
-        format.html { redirect_to @user_address, notice: "User address was successfully created." }
-        format.json { render :show, status: :created, location: @user_address }
-      else
-        format.html { render :new, status: :unprocessable_entity }
-        format.json { render json: @user_address.errors, status: :unprocessable_entity }
-      end
+    @user_address.user = current_user
+
+    if @user_address.save
+      redirect_to edit_user_address_path(@user_address), notice: "作成しました。"
+    else
+      render :new, status: :unprocessable_entity
     end
   end
 
-  # PATCH/PUT /user_addresses/1 or /user_addresses/1.json
+  # 更新処理
   def update
-    respond_to do |format|
-      if @user_address.update(user_address_params)
-        format.html { redirect_to @user_address, notice: "User address was successfully updated.", status: :see_other }
-        format.json { render :show, status: :ok, location: @user_address }
-      else
-        format.html { render :edit, status: :unprocessable_entity }
-        format.json { render json: @user_address.errors, status: :unprocessable_entity }
-      end
+    if @user_address.update(user_address_params)
+      redirect_to edit_user_address_path(@user_address), notice: "更新しました。", status: :see_other
+    else
+      render :edit, status: :unprocessable_entity
     end
   end
 
-  # DELETE /user_addresses/1 or /user_addresses/1.json
+  # 削除処理
   def destroy
     @user_address.destroy!
 
-    respond_to do |format|
-      format.html { redirect_to user_addresses_path, notice: "User address was successfully destroyed.", status: :see_other }
-      format.json { head :no_content }
-    end
+    redirect_to user_addresses_path, notice: "削除しました。", status: :see_other
   end
 
   private
@@ -65,6 +54,6 @@ class UserAddressesController < ApplicationController
 
     # Only allow a list of trusted parameters through.
     def user_address_params
-      params.expect(user_address: [ :user_id, :postal_code, :prefecture, :city, :address_line1, :address_line2, :phone_number ])
+      params.expect(user_address: [ :postal_code, :prefecture, :city, :address_line1, :address_line2, :phone_number ])
     end
 end
