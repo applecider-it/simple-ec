@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[8.0].define(version: 2026_09_18_000906) do
+ActiveRecord::Schema[8.0].define(version: 2026_09_18_042220) do
   # These are extensions that must be enabled in order to support this database
   enable_extension "pg_catalog.plpgsql"
 
@@ -64,6 +64,19 @@ ActiveRecord::Schema[8.0].define(version: 2026_09_18_000906) do
     t.index ["discarded_at"], name: "index_products_on_discarded_at"
   end
 
+  create_table "user_addresses", force: :cascade do |t|
+    t.bigint "user_id", null: false
+    t.string "postal_code"
+    t.integer "prefecture"
+    t.string "city"
+    t.string "address_line1"
+    t.string "address_line2"
+    t.string "phone_number"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["user_id"], name: "index_user_addresses_on_user_id"
+  end
+
   create_table "user_order_details", force: :cascade do |t|
     t.bigint "user_order_id", null: false
     t.bigint "product_id", null: false
@@ -102,6 +115,7 @@ ActiveRecord::Schema[8.0].define(version: 2026_09_18_000906) do
 
   add_foreign_key "active_storage_attachments", "active_storage_blobs", column: "blob_id"
   add_foreign_key "active_storage_variant_records", "active_storage_blobs", column: "blob_id"
+  add_foreign_key "user_addresses", "users"
   add_foreign_key "user_order_details", "products"
   add_foreign_key "user_order_details", "user_orders"
   add_foreign_key "user_orders", "users"

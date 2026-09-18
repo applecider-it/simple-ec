@@ -1,4 +1,5 @@
 Rails.application.routes.draw do
+  resources :user_addresses
   # ユーザー関連
   devise_for :users, controllers: {
     sessions: 'users/sessions',
