@@ -13,4 +13,5 @@
 | reset_password_token | パスワードリセットトークン | string | devise標準 |
 | reset_password_sent_at | パスワードリセットトークン送信日時 | datetime | devise標準 |
 | remember_created_at | リメンバー送信日時 | datetime | devise標準 |
+| name | 名前 | string |  |
 
