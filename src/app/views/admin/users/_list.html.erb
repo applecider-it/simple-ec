@@ -14,7 +14,7 @@
         <tr class="transition
          <% if user.discarded? %>bg-gray-300 hover:bg-gray-200<% else %>hover:bg-gray-50<% end %>">
           <td class="app-table-td text-gray-700"><%= user.id %></td>
-          <td class="app-table-td font-medium text-gray-900"><%= user.email %></td>
+          <td class="app-table-td font-medium text-gray-900"><%= user.name %></td>
           <td class="app-table-td"><%= user.created_at.strftime("%Y-%m-%d %H:%M") %></td>
           <td class="app-table-td"><%= user.discarded_at ? user.discarded_at.strftime("%Y-%m-%d %H:%M") : '' %></td>
           <td class="app-table-td text-right">
