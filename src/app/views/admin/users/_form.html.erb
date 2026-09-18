@@ -7,6 +7,12 @@
 </div>
 
 <div class="my-3">
+  <%= form.label :name, class: "app-form-label" %>
+  <%= form.text_field :name, class: "app-form-input" %>
+  <%= field_error(form, :name) %>
+</div>
+
+<div class="my-3">
   <%= form.label :password, class: "app-form-label" %>
   <% unless form.object.new_record? %>
     <div class="text-sm text-gray-500">空にすると更新されません。</div>
