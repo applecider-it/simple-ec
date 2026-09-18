@@ -6,8 +6,9 @@
 
   <%= render "form", user_address: @user_address %>
 
-  <div class="mt-10">
-    <%= button_to "削除", @user_address, method: :delete %>
+  <div class="mt-20 text-right">
+    <%= button_to "削除", @user_address, method: :delete, class: "app-btn-danger",
+    form: { onsubmit: "return confirm('本当に削除しますか？');" } %>
   </div>
 
 </div>
