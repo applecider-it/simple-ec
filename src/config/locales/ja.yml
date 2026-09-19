@@ -74,6 +74,13 @@ ja:
         order_status: "注文状況"
         payment_method: "支払い方法"
         user_address_id: "住所"
+      user_address:
+        postal_code: "郵便番号"
+        prefecture: "都道府県"
+        city: "市区町村"
+        address_line1: "住所１"
+        address_line2: "住所２"
+        phone_number: "電話番号"
     errors:
       messages:
         record_invalid: 'バリデーションに失敗しました: %{errors}'

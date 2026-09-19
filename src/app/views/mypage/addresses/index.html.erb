@@ -5,15 +5,15 @@
   <h2 class="app-h2">住所一覧</h2>
 
   <div class="my-5 text-right">
-    <%= link_to "新規作成", new_mypage_user_address_path, class: "app-btn-primary" %>
+    <%= link_to "新規作成", new_mypage_address_path, class: "app-btn-primary" %>
   </div>
 
   <div class="space-y-5">
     <% @user_addresses.each do |user_address| %>
       <div>
-        <%= render user_address %>
+        <%= render "info", user_address: user_address %>
         <div class="mt-3">
-          <%= link_to "編集", edit_mypage_user_address_path(user_address), class: "app-btn-secondary" %>
+          <%= link_to "編集", edit_mypage_address_path(user_address), class: "app-btn-secondary" %>
         </div>
       </div>
     <% end %>

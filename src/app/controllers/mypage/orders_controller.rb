@@ -1,5 +1,5 @@
 # マイページ  オーダー管理
-class Mypage::UserOrdersController < ApplicationController
+class Mypage::OrdersController < ApplicationController
   before_action :authenticate_user!
 
   # 一覧画面

@@ -32,10 +32,10 @@ Rails.application.routes.draw do
 
   scope as: "mypage", module: :mypage do
     # マイページ：オーダー
-    resources :user_orders, path: 'orders', only: [:index]
+    resources :orders, only: [:index]
 
     # マイページ：住所
-    resources :user_addresses, path: 'addresses', except: [:show]
+    resources :addresses, except: [:show]
   end
 
   # カート
