@@ -1,11 +1,17 @@
 <div class="app-container-normal">
   <h2 class="app-h2">購入確認</h2>
 
-  <div>
-    <%= render "list" %>
-  </div>
+  <%= form_with url: checkout_path, method: :post do |form| %>
+    <div>
+      <%= render "list" %>
+    </div>
 
-  <div class="mt-10">
-    <%= render "summary" %>
-  </div>
+    <div class="mt-10">
+      <%= render "addresses", form: form %>
+    </div>
+
+    <div class="mt-10">
+      <%= render "summary", form: form %>
+    </div>
+  <% end %>
 </div>

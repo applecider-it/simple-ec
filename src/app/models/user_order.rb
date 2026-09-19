@@ -6,6 +6,7 @@ class UserOrder < ApplicationRecord
   include Discard::Model
 
   belongs_to :user
+  belongs_to :user_address
 
   has_many :user_order_details
 

@@ -5,15 +5,19 @@ class CheckoutController < ApplicationController
 
   # 確認
   def confirm
+    @user_addresses = current_user.user_addresses.for_user
   end
 
   # 購入
   def store
     checkout_service = CheckoutServices::CheckoutService.new
 
-    checkout_service.checkout(current_user, @summary)
+    user_address_id = params["user_address_id"]
+    user_address = UserAddress.find(user_address_id)
 
-    @cart_service.clear
+    checkout_service.checkout(current_user, @summary, user_address)
+
+    #@cart_service.clear
 
     redirect_to root_path, notice: "購入しました"
   end

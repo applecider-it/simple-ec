@@ -60,3 +60,8 @@ rails generate migration AddNameToUsers name:string
 rails g scaffold UserAddress user:references postal_code:string prefecture:integer city:string address_line1:string address_line2:string phone_number:string
 
 rails db:migrate
+
+rails g migration AddUserAddressToUserOrders user_address:references
+
+rails db:migrate
+

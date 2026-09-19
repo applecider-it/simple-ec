@@ -5,7 +5,7 @@ class UserAddressesController < ApplicationController
 
   # 一覧画面
   def index
-    @user_addresses = current_user.user_addresses.kept
+    @user_addresses = current_user.user_addresses.for_user
   end
 
   # 新規作成画面

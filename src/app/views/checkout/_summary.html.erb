@@ -4,7 +4,6 @@
     計：<%= @summary[:total] %>円
   </div>
   <div class="mt-5">
-    <%= button_to "購入を確定する", checkout_path, method: :post,
-      class: "app-btn-primary" %>
+    <%= form.submit "購入を確定する", class: "app-btn-primary" %>
   </div>
 </div>
