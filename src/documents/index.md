@@ -6,6 +6,7 @@
 ## 実装内容
 
 - [カート](./features/cart.md)
+- [オーダー](./features/order.md)
 
 ## モデル
 
