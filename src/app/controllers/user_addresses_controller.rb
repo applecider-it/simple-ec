@@ -5,7 +5,7 @@ class UserAddressesController < ApplicationController
 
   # 一覧画面
   def index
-    @user_addresses = current_user.user_addresses.all
+    @user_addresses = current_user.user_addresses.kept
   end
 
   # 新規作成画面
@@ -41,7 +41,7 @@ class UserAddressesController < ApplicationController
 
   # 削除処理
   def destroy
-    @user_address.destroy!
+    @user_address.discard
 
     redirect_to user_addresses_path, notice: "削除しました。", status: :see_other
   end

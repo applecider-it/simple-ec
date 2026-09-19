@@ -9,7 +9,11 @@ class CreateUserAddresses < ActiveRecord::Migration[8.0]
       t.string :address_line2
       t.string :phone_number
 
+      t.datetime :discarded_at
+
       t.timestamps
     end
+
+    add_index :user_addresses, :discarded_at
   end
 end

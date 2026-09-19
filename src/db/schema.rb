@@ -72,8 +72,10 @@ ActiveRecord::Schema[8.0].define(version: 2026_09_18_042220) do
     t.string "address_line1"
     t.string "address_line2"
     t.string "phone_number"
+    t.datetime "discarded_at"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.index ["discarded_at"], name: "index_user_addresses_on_discarded_at"
     t.index ["user_id"], name: "index_user_addresses_on_user_id"
   end
 
