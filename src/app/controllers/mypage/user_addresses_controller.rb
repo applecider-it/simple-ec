@@ -1,4 +1,4 @@
-class UserAddressesController < ApplicationController
+class Mypage::UserAddressesController < ApplicationController
   before_action :authenticate_user!
 
   before_action :set_user_address, only: %i[ edit update destroy ]
@@ -24,7 +24,7 @@ class UserAddressesController < ApplicationController
     @user_address.user = current_user
 
     if @user_address.save
-      redirect_to edit_user_address_path(@user_address), notice: "作成しました。"
+      redirect_to edit_mypage_user_address_path(@user_address), notice: "作成しました。"
     else
       render :new, status: :unprocessable_entity
     end
@@ -33,7 +33,7 @@ class UserAddressesController < ApplicationController
   # 更新処理
   def update
     if @user_address.update(user_address_params)
-      redirect_to edit_user_address_path(@user_address), notice: "更新しました。", status: :see_other
+      redirect_to edit_mypage_user_address_path(@user_address), notice: "更新しました。", status: :see_other
     else
       render :edit, status: :unprocessable_entity
     end
@@ -43,7 +43,7 @@ class UserAddressesController < ApplicationController
   def destroy
     @user_address.discard
 
-    redirect_to user_addresses_path, notice: "削除しました。", status: :see_other
+    redirect_to mypage_user_addresses_path, notice: "削除しました。", status: :see_other
   end
 
   private

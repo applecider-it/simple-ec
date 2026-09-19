@@ -1,0 +1,15 @@
+<div class="app-container-normal">
+
+  <%= render "shared/account/menu" %>
+
+  <h2 class="app-h2">住所登録</h2>
+
+  <%= form_with(model: @user_address, url: mypage_user_addresses_path, scope: :user_address) do |form| %>
+    <%= render "form", form: form, user_address: @user_address %>
+
+    <div class="mt-5">
+      <%= form.submit class: "app-btn-primary" %>
+    </div>
+  <% end %>
+
+</div>

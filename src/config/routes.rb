@@ -30,11 +30,13 @@ Rails.application.routes.draw do
     end
   end
 
-  # マイページ：オーダー
-  resources :user_orders, path: 'orders', only: [:index]
+  scope as: "mypage", module: :mypage do
+    # マイページ：オーダー
+    resources :user_orders, path: 'orders', only: [:index]
 
-  # マイページ：住所
-  resources :user_addresses, path: 'addresses', except: [:show]
+    # マイページ：住所
+    resources :user_addresses, path: 'addresses', except: [:show]
+  end
 
   # カート
   get "cart", to: "cart#index"

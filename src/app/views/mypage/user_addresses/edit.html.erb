@@ -1,0 +1,20 @@
+<div class="app-container-normal">
+
+  <%= render "shared/account/menu" %>
+
+  <h2 class="app-h2">住所更新</h2>
+
+  <%= form_with(model: @user_address, url: mypage_user_address_path(@user_address), scope: :user_address) do |form| %>
+    <%= render "form", form: form, user_address: @user_address %>
+
+    <div class="mt-5">
+      <%= form.submit class: "app-btn-primary" %>
+    </div>
+  <% end %>
+
+  <div class="mt-20 text-right">
+    <%= button_to "削除", mypage_user_address_path(@user_address), method: :delete, class: "app-btn-danger",
+    form: { onsubmit: "return confirm('本当に削除しますか？');" } %>
+  </div>
+
+</div>
