@@ -6,7 +6,7 @@ class UserOrder < ApplicationRecord
   include Discard::Model
 
   belongs_to :user
-  belongs_to :user_address
+  belongs_to :user_address, optional: true
 
   has_many :user_order_details
 
@@ -18,6 +18,9 @@ class UserOrder < ApplicationRecord
     convenience_store: 2, # コンビニ払い
     cod: 3 # 代金引換
   }
+
+  validates :payment_method, presence: { message: "%{attribute}を選択してください" }
+  validates :user_address_id, presence: { message: "%{attribute}を選択してください" }
 
   # 有効なオーダーステータスのキー文字列と表示名のハッシュ
   def self.active_order_statuses

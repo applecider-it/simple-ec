@@ -1,7 +1,9 @@
 <div class="app-container-normal">
   <h2 class="app-h2">購入確認</h2>
 
-  <%= form_with url: checkout_path, method: :post do |form| %>
+  <%= render "shared/message/error_messages", resource: @user_order %>
+
+  <%= form_with url: checkout_path, model: @user_order, method: :post do |form| %>
     <div>
       <%= render "list" %>
     </div>
@@ -12,7 +14,7 @@
 
     <div class="mt-10">
       <%= form.label :payment_method, class: "app-form-label" %>
-      <%= form.select :payment_method, UserOrder.active_payment_methods.invert %>
+      <%= form.select :payment_method, UserOrder.active_payment_methods.invert, { include_blank: "選択してください" } %>
     </div>
 
     <div class="mt-10">

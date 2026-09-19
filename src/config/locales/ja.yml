@@ -58,6 +58,7 @@ ja:
       user: "ユーザー"
       admin_user: "管理者"
       product: "商品"
+      user_order: "注文"
     attributes:
       user:
         name: "名前"
@@ -71,6 +72,8 @@ ja:
         description: "詳細"
       user_order:
         order_status: "注文状況"
+        payment_method: "支払い方法"
+        user_address_id: "住所"
     errors:
       messages:
         record_invalid: 'バリデーションに失敗しました: %{errors}'
