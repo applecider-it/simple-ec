@@ -88,6 +88,11 @@ ja:
         paid: "支払い済み"
         shipped: "発送済み"
         cancelled: "キャンセル済み"
+      payment_method:
+        credit_card: "クレジットカード"
+        bank_transfer: "銀行振込"
+        convenience_store: "コンビニ払い"
+        cod: "代金引換"
   date:
     abbr_day_names:
     - 日

@@ -9,6 +9,9 @@
       <div>
         <%= render "address", user_address: user_order.user_address %>
       </div>
+      <div>
+        <%= user_order.payment_method_i18n %>
+      </div>
     </div>
   <% end %>
 </div>

@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[8.0].define(version: 2026_09_19_113217) do
+ActiveRecord::Schema[8.0].define(version: 2026_09_19_114812) do
   # These are extensions that must be enabled in order to support this database
   enable_extension "pg_catalog.plpgsql"
 
@@ -97,6 +97,7 @@ ActiveRecord::Schema[8.0].define(version: 2026_09_19_113217) do
     t.datetime "updated_at", null: false
     t.integer "order_status", default: 0, null: false
     t.bigint "user_address_id", null: false
+    t.integer "payment_method", default: 0, null: false
     t.index ["discarded_at"], name: "index_user_orders_on_discarded_at"
     t.index ["user_address_id"], name: "index_user_orders_on_user_address_id"
     t.index ["user_id"], name: "index_user_orders_on_user_id"

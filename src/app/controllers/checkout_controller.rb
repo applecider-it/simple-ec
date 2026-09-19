@@ -15,7 +15,9 @@ class CheckoutController < ApplicationController
     user_address_id = params["user_address_id"]
     user_address = UserAddress.find(user_address_id)
 
-    checkout_service.checkout(current_user, @summary, user_address)
+    payment_method = params["payment_method"]
+
+    checkout_service.checkout(current_user, @summary, user_address, payment_method)
 
     #@cart_service.clear
 

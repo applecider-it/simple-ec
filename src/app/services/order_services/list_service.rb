@@ -5,6 +5,7 @@ class OrderServices::ListService
     user
       .user_orders
       .includes(user_order_details: {product: :image_attachment})
+      .includes(:user_address)
       .order(id: :desc)
       .kept
       .page(page)

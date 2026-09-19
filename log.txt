@@ -65,3 +65,7 @@ rails g migration AddUserAddressToUserOrders user_address:references
 
 rails db:migrate
 
+rails g migration AddPaymentMethodToUserOrders payment_method:integer
+
+rails db:migrate
+

@@ -11,6 +11,11 @@
     </div>
 
     <div class="mt-10">
+      <%= form.label :payment_method, class: "app-form-label" %>
+      <%= form.select :payment_method, UserOrder.active_payment_methods.invert %>
+    </div>
+
+    <div class="mt-10">
       <%= render "summary", form: form %>
     </div>
   <% end %>

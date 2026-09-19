@@ -1,4 +1,9 @@
 <div class="my-3">
+  <%= form.label :payment_method, class: "app-form-label" %>
+  <%= user_order.payment_method_i18n %>
+</div>
+
+<div class="my-3">
   <%= form.label :user, class: "app-form-label" %>
   <%= user_order.user&.email %>
 </div>
