@@ -12,7 +12,7 @@ class UserAddress < ApplicationRecord
   scope :for_user, ->() { kept.order(id: :desc) }
 
   def prefecture_text
-    prefectures = I18n.t('app.data.prefectures')
+    prefectures = DataServices::FixeddataService.prefectures
     prefectures[prefecture]
   end
 end

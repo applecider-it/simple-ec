@@ -17,7 +17,7 @@
 
   <div>
     <%= form.label :prefecture, class: "block" %>
-    <%= form.select :prefecture, I18n.t('app.data.prefectures').invert, { include_blank: "選択してください" }, class: "app-form-input w-64" %>
+    <%= form.select :prefecture, DataServices::FixeddataService.prefectures.invert, { include_blank: "選択してください" }, class: "app-form-input w-64" %>
   </div>
 
   <div>
