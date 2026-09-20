@@ -25,12 +25,13 @@ class UserOrder < ApplicationRecord
   }
 
   validates :payment_method, presence: { message: "%{attribute}を選択してください" }
-  validates :user_address, presence: { message: "%{attribute}を選択してください" }
-  validate :user_address_belongs_to_user
   validates :payment_method, inclusion: {
     in: ->(record) { record.class.active_payment_methods },
     message: "選択できない支払方法です"
   }
+  validates :user_address, presence: { message: "%{attribute}を選択してください" }
+  validate :user_address_belongs_to_user
+
 
   # 有効なオーダーステータス
   def self.active_order_statuses
