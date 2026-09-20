@@ -73,7 +73,7 @@ ja:
       user_order:
         order_status: "注文状況"
         payment_method: "支払い方法"
-        user_address_id: "住所"
+        user_address: "住所"
       user_address:
         postal_code: "郵便番号"
         prefecture: "都道府県"
