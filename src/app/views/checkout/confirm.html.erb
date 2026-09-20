@@ -14,11 +14,15 @@
 
     <div class="mt-10">
       <%= form.label :payment_method, class: "app-form-label" %>
-      <%= form.select :payment_method, UserOrder.active_payment_methods.invert, { include_blank: "選択してください" } %>
+      <%= form.select :payment_method, UserOrder.active_payment_methods_hash.invert, { include_blank: "選択してください" } %>
     </div>
 
     <div class="mt-10">
       <%= render "summary", form: form %>
+    </div>
+
+    <div class="mt-10">
+      <%= form.submit "購入を確定する", class: "app-btn-primary" %>
     </div>
   <% end %>
 </div>

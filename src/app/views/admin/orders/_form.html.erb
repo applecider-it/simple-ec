@@ -2,6 +2,6 @@
 
 <div class="my-3">
   <%= form.label :order_status, class: "app-form-label" %>
-  <%= form.select :order_status, UserOrder.active_order_statuses.invert %>
+  <%= form.select :order_status, UserOrder.active_order_statuses_hash.invert %>
   <%= field_error(form, :order_status) %>
 </div>
